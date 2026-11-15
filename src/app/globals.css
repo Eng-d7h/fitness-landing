@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/*
+ * DESIGN TOKENS — the only place colors, fonts and radii are defined.
+ * Per client: change the BRAND block. The FIXED block rarely changes.
+ * Never use Tailwind palette colors (blue-100, amber-300…) in components — only these tokens.
+ * Contrast rule: white text on --color-primary and --color-accent must stay ≥ 4.5:1.
+ */
+@theme {
+  /* ── BRAND (change per client) — palette: dark green · green · white ONLY ── */
+  --color-primary: #031d14;          /* very dark green: headings, dark sections */
+  --color-primary-soft: #e6f4ee;     /* light green tint: icon tiles */
+  --color-on-primary-muted: #cfe9dc; /* light green-grey text on dark green */
+  --color-accent: #07855d;           /* green: CTA buttons ONLY (≥4.5 vs white, ≥3 vs primary) */
+  --color-accent-hover: #065f46;
+  --color-accent-text: #065f46;       /* small accent text (eyebrows) on light/tinted backgrounds — must be ≥4.5:1 on --color-surface */
+  --color-highlight: #6ee7b7;        /* mint: icons/eyebrows on dark green */
+
+  /* ── NEUTRALS (pure greys, no blue tint) ── */
+  --color-ink: #0a0f0c;
+  --color-muted: #52525b;
+  --color-placeholder: #a1a1aa;
+  --color-line: #e4e4e7;
+  --color-surface: #f7faf8;
+  --color-paper: #ffffff;
+  --color-star: #07855d;             /* stars in brand green */
+  --color-danger: #b91c1c;           /* form error only */
+  --color-footer-text: #a7c4b6;
+  --color-footer-line: #123527;
+  --color-notice-bg: #e6f4ee;
+  --color-notice-fg: #064e3b;
+
+  --font-sans: var(--font-brand), ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* keeps anchored sections clear of the sticky header */
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
